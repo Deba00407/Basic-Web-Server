@@ -20,7 +20,7 @@ This is a simple Go web server project that allows users to register via a form,
 
 - Go 1.18+ installed on your machine
 - MongoDB instance running (local or cloud)
-- `.env` file configured with your MongoDB URI (e.g. `MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/dbname`)
+- `.env` file configured with your MongoDB URI (e.g. `MONGODB_URI=mongodb+srv://....`)
 
 ---
 
