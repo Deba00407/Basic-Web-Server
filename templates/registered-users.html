@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registered Users</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 1.5rem 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+    thead {
+      background-color: #3498db;
+      color: #fff;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    tbody tr:hover {
+      background-color: #f1f9ff;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9fbfd;
+    }
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead tr {
+        display: none;
+      }
+      tbody tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 1rem;
+      }
+      tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+      tbody td:last-child {
+        border-bottom: none;
+      }
+      tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #3498db;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Registered Users</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range .}}
+        <tr>
+          <td data-label="Name">{{.Name}}</td>
+          <td data-label="Username">{{.Username}}</td>
+          <td data-label="Email">{{.Email}}</td>
+        </tr>
+        {{else}}
+        <tr>
+          <td colspan="3" style="text-align:center; padding: 1rem;">No users registered yet.</td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
